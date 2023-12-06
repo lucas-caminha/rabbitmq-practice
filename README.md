@@ -12,4 +12,4 @@ Após isso, experimente Receber a mensagem executando a Classe Recv.
 Podes executar inumeras instancias da classe Recv para serem executas, porém quando a mensagem é enviada, somente uma dessas instancias lerá a mensagem.
 
 *  Normalmente filas são criadas para executar rotinas que custam bastante recurso, então estas rotinas são executadas depois.
-*  Pode acontecer o aumento de mensagems e a falta de serviços que executem estas mensagems de forma rápida, nestes casos é possível rodar um novos serviços que consumam aquela fila, aumentando a escalabilidade.
+*  Pode acontecer o aumento de mensagems e a falta de serviços que executem estas mensagems de forma rápida, nestes casos é possível rodar novos serviços que consumam a fila, aumentando a escalabilidade.
