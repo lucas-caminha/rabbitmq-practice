@@ -1,14 +1,13 @@
 package br.com.rabbitmq.send;
 
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
-public class Send {
+public class NewTask {
 	
 	  private final static String QUEUE_NAME = "hello";
-	  
-	  
+	
 	  public static void main(String[] argv) throws Exception {
 		  
 		  ConnectionFactory factory = new ConnectionFactory();
@@ -18,10 +17,13 @@ public class Send {
 		      Channel channel = connection.createChannel()) {		  
 			  channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 			  
-			  String message = "Hello World! Caminha!";
-			  channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+			  for(int i = 0; i < 4; i++) {
+				String mensagem  = "Uma mensagem de exemplo " + i;
+			  	channel.basicPublish("", "hello", null, mensagem.getBytes());
+				System.out.println(" [x] Enviando '" + mensagem + "'");
+			  }
 			  
-			  System.out.println(" [x] Enviando '" + message + "'");
+
 		  }	      
 	  }
 
